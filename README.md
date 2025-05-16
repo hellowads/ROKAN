@@ -13,9 +13,11 @@
 ```
 
 ### Run main.py
+run cross-domain Anki data
 ```cmd
-python main.py
+python main.py --dataset anki --sigle False
 ```
 
-In cross domain scenarios, the experimental results with MaiMemo as the test set are as follows
-![img.png](README.assets/img.png)
+In cross domain scenarios, the experimental results with Anki as the test set are as follows
+
+![](pic/img.png)

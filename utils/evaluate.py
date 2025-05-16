@@ -28,22 +28,25 @@ def evaluate(predictions: np.ndarray, targets: np.ndarray):
     scores['MAE']= mae_np(y_pred, y_true)
     scores['RMSE'] = rmse_np(y_pred, y_true)
     # scores['MAPE']= mape_np(y_pred, y_true)
-    # scores['R2'] = r2(y_true, y_pred)
+    scores['R2'] = r2(y_true, y_pred)
 
 
     scores['AUC'] = auc_np(y_pred, y_true)
     # 针对类别不平衡问题，PR AUC是基于精确度和召回率曲线下的面积，特别适用于数据不均衡的情况。
-    # scores['Pr_AUC'] = pr_auc(y_pred,y_true)
+    scores['Pr_AUC'] = pr_auc(y_pred,y_true)
 
-    # y_pred_acc_0 = (np.array(y_pred) <= threshold).astype(int)
-    # y_true_reversed = (np.array(y_true) == 0).astype(int)
+    y_pred_acc_0 = (np.array(y_pred) <= threshold).astype(int)
+    y_true_reversed = (np.array(y_true) == 0).astype(int)
+    scores['Revers0_Precision'] = precision(y_true_reversed,y_pred_acc_0)
+    scores['Revers0_ACC'] = acc(y_true_reversed,y_pred_acc_0)
+    scores['Revers0_Recall'] = recall(y_true_reversed, y_pred_acc_0)
+    scores['Revers0_F1'] = F1Score(y_true_reversed, y_pred_acc_0)
 
-
-    # y_pred_acc = (np.array(y_pred) >= threshold).astype(int)
-    # scores['Precision'] = precision(y_true, y_pred_acc)
-    # scores['Recall'] = recall(y_true, y_pred_acc)
-    # scores['F1'] = F1Score(y_true, y_pred_acc)
-    # scores['loss'] = bce_loss(y_pred, y_true)
+    y_pred_acc = (np.array(y_pred) >= threshold).astype(int)
+    scores['Precision'] = precision(y_true, y_pred_acc)
+    scores['Recall'] = recall(y_true, y_pred_acc)
+    scores['F1'] = F1Score(y_true, y_pred_acc)
+    scores['loss'] = bce_loss(y_pred, y_true)
 
     return scores
 
