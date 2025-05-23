@@ -34,11 +34,11 @@ def train(_config,args,resume: bool = False, test: bool = False):
     if scheduler_name is not None:
         scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=1)
     save_folder = os.path.join('saves', dataset,model_name)
-    if not resume and not test:
-        shutil.rmtree(save_folder, ignore_errors=True)
-        os.makedirs(save_folder)
-    with open(os.path.join(save_folder, 'config.yaml'), 'w+') as _f:
-        yaml.safe_dump(_config, _f)
+    # if not resume and not test:
+    #     shutil.rmtree(save_folder, ignore_errors=True)
+    #     os.makedirs(save_folder)
+    # with open(os.path.join(save_folder, 'config.yaml'), 'w+') as _f:
+    #     yaml.safe_dump(_config, _f)
 
     if args.dataset == 'anki':
         args.dataset = '/frsr'
