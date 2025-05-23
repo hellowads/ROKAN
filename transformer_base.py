@@ -41,10 +41,10 @@ def train(_config,args,resume: bool = False, test: bool = False):
     #     yaml.safe_dump(_config, _f)
 
     if args.dataset == 'anki':
-        args.dataset = '/frsr'
+        args.dataset = 'frsr'
     # sigle = True
     if False :
-        dataset = 'data/multi_data' + args.dataset
+        dataset = 'data/multi_data/' + args.dataset
 
         datasets = get_datasetssingle(dataset)
     else:
