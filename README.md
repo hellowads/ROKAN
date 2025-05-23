@@ -15,7 +15,7 @@
 ### Run main.py
 run cross-domain Anki data
 ```cmd
-python main.py --dataset anki --sigle False
+python main.py --dataset anki 
 ```
 
 In cross domain scenarios, the experimental results with Anki as the test set are as follows

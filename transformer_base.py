@@ -43,7 +43,7 @@ def train(_config,args,resume: bool = False, test: bool = False):
     if args.dataset == 'anki':
         args.dataset = '/frsr'
     # sigle = True
-    if args.sigle :
+    if True :
         dataset = 'data/multi_data' + args.dataset
 
         datasets = get_datasetssingle(dataset)
