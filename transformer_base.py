@@ -37,13 +37,13 @@ def train(_config,args,resume: bool = False, test: bool = False):
     if not resume and not test:
         shutil.rmtree(save_folder, ignore_errors=True)
         os.makedirs(save_folder)
-    # with open(os.path.join(save_folder, 'config.yaml'), 'w+') as _f:
-    #     yaml.safe_dump(_config, _f)
+    with open(os.path.join(save_folder, 'config.yaml'), 'w+') as _f:
+        yaml.safe_dump(_config, _f)
 
     if args.dataset == 'anki':
         args.dataset = '/frsr'
     # sigle = True
-    if True :
+    if False :
         dataset = 'data/multi_data' + args.dataset
 
         datasets = get_datasetssingle(dataset)
